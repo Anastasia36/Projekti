@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <link rel="icon" type="image/x-icon" href="/slike/logo.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+	<!-- Početak zaglavlja -->
+    <div class="container text-center mt-4">
+        <img src="slike/logo.jpg" alt="Logo" class="header-image">
+        <h1 class="mt-2">RESTORAN</h1>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+					<li class="nav-item"><a class ="nav-link" href="index.html">Početna</a></li>
+                    <li class="nav-item"><a class="nav-link" href="galerija.html">Galerija</a></li>
+                    <li class="nav-item"><a class="nav-link" href="onama.html">O nama</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="jelovnik.html">Jelovnik</a></li>
+					<li class="nav-item"><a class="nav-link" href="contact.html">Rezervacija</a></li>
+					<li class="nav-item"><a class="nav-link" href="admin_login.html">Prijava</a></li>
+					<li class="nav-item"><a class="nav-link" href="korisnik.html">Registracija</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+	<!-- Kraj zaglavlja -->
+
+
+
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Ponuda jelovnika</h2>
+
+        <!-- Filtar -->
+        <div class="container-fluid d-flex justify-content-center mb-4 flex-wrap">
+            <button class="btn filter-btn" data-category="all">Sve</button>
+            <button class="btn btn-outline-primary me-2 filter-btn" data-category="Predjelo">Predjelo</button>
+            <button class="btn btn-outline-primary me-2 filter-btn" data-category="Tjestenina">Tjestenina</button>
+            <button class="btn btn-outline-primary me-2 filter-btn" data-category="Juhe">Juhe</button>
+            <button class="btn btn-outline-primary me-2 filter-btn" data-category="Obrok salate">Obrok salate</button>
+            <button class="btn btn-outline-primary me-2 filter-btn" data-category="Riba">Riba</button>
+            <button class="btn btn-outline-primary me-2 filter-btn" data-category="Pizze">Pizze</button>
+            <button class="btn btn-outline-primary me-2 filter-btn" data-category="Glavna jela">Glavna jela</button>
+            <button class="btn btn-outline-primary me-2 filter-btn" data-category="Deserti">Deserti</button>
+        </div>
+
+        <!-- Pretraga -->
+        <div class="d-flex justify-content-center mb-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="Pretraži">
+        </div>
+
+        <!-- Ponude -->
+        <div class="row" id="ponude">
+            <div class="col-md-4 mb-4 ponuda" data-category="Predjelo" data-name="SELEKCIJA MASLACA I KRUH">
+                <div class="card">
+                    <img src="slike/maslac.jpg" class="card-img-top" alt="Predjelo">
+                    <div class="card-body">
+                        <h5 class="card-title">SELEKCIJA MASLACA I KRUH</h5>
+                        <p class="card-text">maslac klasični, maslac s infuzijom crnog češnjaka, maslac s infuzijom fermentirane miso paste</p>
+                        <p class="card-text"><strong>Cijena: 2.70 €</strong></p>
+                    </div>
+                </div>
+            </div>
+   
+            <div class="col-md-4 mb-4 ponuda" data-category="Predjelo" data-name="KOZJI SIR I MED">
+                <div class="card">
+                    <img src="slike/med.jpg" class="card-img-top" alt="Predjelo">
+                    <div class="card-body">
+                        <h5 class="card-title">KOZJI SIR I MED</h5>
+                        <p class="card-text">okruglice kozjeg sira “Gabriel”,panirane u panko mrvicama, tostirani pistachio I med</p>
+                        <p class="card-text"><strong>Cijena: 6.20 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Predjelo" data-name="BRUSCHETTA CLASSICA (craft kruh)">
+                <div class="card">
+                    <img src="slike/kruh.jpeg" class="card-img-top" alt="Predjelo">
+                    <div class="card-body">
+                        <h5 class="card-title">BRUSCHETTA CLASSICA (craft kruh)</h5>
+                        <p class="card-text">2 kom , fior di latte mozzarella, rukola, cherry rajčica, pršut, masline, aceto balsamico krema</p>
+                        <p class="card-text"><strong>Cijena: 4.50 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Tjestenina" data-name="PASTA PUGLIESE">
+                <div class="card">
+                    <img src="slike/pasta.jpg" class="card-img-top" alt="Tjestenina">
+                    <div class="card-body">
+                        <h5 class="card-title">PASTA PUGLIESE</h5>
+                        <p class="card-text">Trakice junećeg bifteka, brokula sa žara, dimljeni sir, masline kalamata, njoki domaći</p>
+                        <p class="card-text"><strong>Cijena: 13.80 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Tjestenina" data-name="PASTA MEDITERRANEA">
+                <div class="card">
+                    <img src="slike/mediteranska.jpg" class="card-img-top" alt="Tjestenina">
+                    <div class="card-body">
+                        <h5 class="card-title">PASTA MEDITERRANEA</h5>
+                        <p class="card-text">Kozice, lignje, cheery rajčica, kapare, maslinovo ulje, malvazija, domaća tjestenina</p>
+                        <p class="card-text"><strong>Cijena: 13.50 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Tjestenina" data-name="RISOTTO CURRY">
+                <div class="card">
+                    <img src="slike/riza.jpg" class="card-img-top" alt="Tjestenina">
+                    <div class="card-body">
+                        <h5 class="card-title">RISOTTO CURRY</h5>
+                        <p class="card-text">Spicy, Pileći zabatak mariniran u soja umaku, sa“kamado” grill-a, arborio riža, mix začina, spicy
+                            curry pasta, povrće</p>
+                        <p class="card-text"><strong>Cijena: 12.80 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Juhe" data-name="KREM JUHA OD GLJIVA">
+                <div class="card">
+                    <img src="slike/gljive.jpg" class="card-img-top" alt="Juhe">
+                    <div class="card-body">
+                        <h5 class="card-title">KREM JUHA OD GLJIVA</h5>
+                        <p class="card-text">šumske gljive, krutoni, čips od slanine</p>
+                        <p class="card-text"><strong>Cijena: 4.50 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Juhe" data-name="KREM JUHA OD POVRĆA">
+                <div class="card">
+                    <img src="slike/krem.jpg" class="card-img-top" alt="Juhe">
+                    <div class="card-body">
+                        <h5 class="card-title">KREM JUHA OD POVRĆA</h5>
+                        <p class="card-text">krutoni</p>
+                        <p class="card-text"><strong>Cijena: 4.50 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Obrok salate" data-name="SALATA S HRSKAVOM PILETINOM">
+                <div class="card">
+                    <img src="slike/salata.jpg" class="card-img-top" alt="Obrok salate">
+                    <div class="card-body">
+                        <h5 class="card-title">SALATA S HRSKAVOM PILETINOM</h5>
+                        <p class="card-text">domaća marinirana piletina panirana u panko mrvicama, povrće, krutoni, dresing na bazi grčkog
+                            jogurta, premium aceto balsamico</p>
+                        <p class="card-text"><strong>Cijena: 12.00 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Riba" data-name="FILET LOSOSA U BEURREU BLANC UMAKU">
+                <div class="card">
+                    <img src="slike/filet.jpg" class="card-img-top" alt="Riba">
+                    <div class="card-body">
+                        <h5 class="card-title">FILET LOSOSA U BEURREU BLANC UMAKU</h5>
+                        <p class="card-text">220 grama, umak na bazi ljutike,vina I maslaca, ravioli punjeni špinatom I ricottom</p>
+                        <p class="card-text"><strong>Cijena: 18.50 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Riba" data-name="PUNJENE LIGNJE">
+                <div class="card">
+                    <img src="slike/lignje.jpg" class="card-img-top" alt="Riba">
+                    <div class="card-body">
+                        <h5 class="card-title">PUNJENE LIGNJE</h5>
+                        <p class="card-text">Lignje punjene šunkom I goudom, parisienne krumpir kao prilog, tartar, limeta
+                        </p>
+                        <p class="card-text"><strong>Cijena: 13.30 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Riba" data-name="LIGNJE SA ŽARA">
+                <div class="card">
+                    <img src="slike/lignje_zar.jpg" class="card-img-top" alt="Riba">
+                    <div class="card-body">
+                        <h5 class="card-title">LIGNJE SA ŽARA</h5>
+                        <p class="card-text">Parisienne krumpir ,limeta, tršćanski umak, tartar</p>
+                        <p class="card-text"><strong>Cijena: 12.50 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Pizze" data-name="CAPRICCIOSA">
+                <div class="card">
+                    <img src="slike/kapricoza.jpg" class="card-img-top" alt="Pizze">
+                    <div class="card-body">
+                        <h5 class="card-title">CAPRICCIOSA</h5>
+                        <p class="card-text">Pelat, gouda, šunka, šampinjoni, origano craft</p>
+                        <p class="card-text"><strong>Cijena: 8.50 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Pizze" data-name="MEXICANA">
+                <div class="card">
+                    <img src="slike/meksicka.jpeg" class="card-img-top" alt="Pizze">
+                    <div class="card-body">
+                        <h5 class="card-title">MEXICANA</h5>
+                        <p class="card-text">Povrtni ragu i chilly, domaća kobasica, gouda, fior di latte, feferoni</p>
+                        <p class="card-text"><strong>Cijena: 9.80 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Pizze" data-name="VEGANIZZA">
+                <div class="card">
+                    <img src="slike/vegan.jpg" class="card-img-top" alt="Pizze">
+                    <div class="card-body">
+                        <h5 class="card-title">VEGANIZZA</h5>
+                        <p class="card-text">Vegan mozzarella, masline kalamata, rukola, pelat, gljive i confit povrće u maslinovom ulju</p>
+                        <p class="card-text"><strong>Cijena: 10.00 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Glavna jela" data-name="PUNJENA VJEŠALICA (450g)">
+                <div class="card">
+                    <img src="slike/vjesalica.jpg" class="card-img-top" alt="PUNJENA VJEŠALICA (450g)">
+                    <div class="card-body">
+                        <h5 class="card-title">PUNJENA VJEŠALICA (450g)</h5>
+                        <p class="card-text">Punjena vješalica “Bođirković” umotana u slaninu I punjen Zdenka sirom, pečenom paprikom,
+                            kulenom i goudom, prženi krumpir I gljive sa žara kao prilog, ketchup</p>
+                        <p class="card-text"><strong>Cijena: 17.90 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Glavna jela" data-name="MIJEŠANO MESO">
+                <div class="card">
+                    <img src="slike/mijesano.jpg" class="card-img-top" alt="MIJEŠANO MESO">
+                    <div class="card-body">
+                        <h5 class="card-title">MIJEŠANO MESO</h5>
+                        <p class="card-text">Svinjski vrat marinirani, mesni uštipci, carsko meso marinirano, ćevapi, pileći file, roštilj kobasica
+                            prženi krumpir, ajvar</p>
+                        <p class="card-text"><strong>Cijena: 14.90 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Glavna jela" data-name="MARINIRANI SVINJSKI VRAT">
+                <div class="card">
+                    <img src="slike/vrat.jpg" class="card-img-top" alt="MARINIRANI SVINJSKI VRAT">
+                    <div class="card-body">
+                        <h5 class="card-title">MARINIRANI SVINJSKI VRAT</h5>
+                        <p class="card-text">bez kostiju, pommes frites, ajvar</p>
+                        <p class="card-text"><strong>Cijena: 12.50 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Deserti" data-name="PALAČINKE S ORASIMA">
+                <div class="card">
+                    <img src="slike/palacinka.jpg" class="card-img-top" alt="PALAČINKE S ORASIMA">
+                    <div class="card-body">
+                        <h5 class="card-title">PALAČINKE S ORASIMA</h5>
+                        <p class="card-text">svježi sir, orasi, grožđice, slatki dresing</p>
+                        <p class="card-text"><strong>Cijena: 4.50 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Deserti" data-name="CHEESCAKE S NARANČOM">
+                <div class="card">
+                    <img src="slike/cheescake.jpeg" class="card-img-top" alt="CHEESCAKE S NARANČOM">
+                    <div class="card-body">
+                        <h5 class="card-title">CHEESCAKE S NARANČOM</h5>
+                        <p class="card-text">Mascarpone, mliječna čokolada, naranča</p>
+                        <p class="card-text"><strong>Cijena: 4.50 €</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 ponuda" data-category="Deserti" data-name="ČOKOLADNI LAVA CAKE I SLADOLED">
+                <div class="card">
+                    <img src="slike/lava.jpeg" class="card-img-top" alt="ČOKOLADNI LAVA CAKE I SLADOLED">
+                    <div class="card-body">
+                        <h5 class="card-title">ČOKOLADNI LAVA CAKE I SLADOLED</h5>
+                        <p class="card-text"><strong>Cijena: 4.50 €</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+	
+	<!-- Početak kontakta -->
+		<div class="contact-imfo-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<i class="fa fa-volume-control-phone"></i>
+					<div class="overflow-hidden">
+						<h4>Telefon</h4>
+						<p class="lead">
+							091 33 55 302
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<i class="fa fa-envelope"></i>
+					<div class="overflow-hidden">
+						<h4>Email</h4>
+						<p class="lead">
+							restoran@gmail.com
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<i class="fa fa-map-marker"></i>
+					<div class="overflow-hidden">
+						<h4>Lokacija</h4>
+						<p class="lead">
+							Vukovarska 5, Osijek
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Kraj kontakta -->
+
+	<!-- Početak podnožja -->
+	<footer class="footer-area bg-f">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<h3>O nama</h3>
+					<p>U elegantnom ambijentu restorana uživajte u izboru gotovih jela, jela po narudžbi te izboru specijaliteta sa roštilja na drveni ugljen. U sklopu restorana Lipa nalazi se dvorana u kojoj, osim klasičnih ručkova organiziramo i sve vrste svečanosti.</p>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h3>Radno vrijeme</h3>
+					<p><span class="text-color">Ponedjeljak-Petak: 9:00 h - 22:00 h</p>
+					<p><span class="text-color">Subota-Nedjelja: 12:00 h - 21:00 h</p>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h3>Kontakt informacije</h3>
+					<p class="lead">Vukovarska 5, Osijek</p>
+					<p class="lead"><a href="#">091 33 55 302</a></p>
+					<p><a href="#"> restoranlipa@gmail.com</a></p>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h3>Pretplatite se</h3>
+					<div class="subscribe_form">
+						<form class="subscribe_form">
+							<input name="EMAIL" id="subs-email" class="form_input" placeholder="Email Adresa..." type="email">
+							<button type="submit" class="submit">PRETPLATI SE</button>
+							<div class="clearfix"></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<p class="company-name">&copy; Anastasia Šmrčković</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</footer>
+	<!-- Kraj podnožja -->
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('search') || '';  // Pretraga
+        const categoryFilter = urlParams.get('category') || 'all';  // Kategorija
+
+        // Postavljanje početne vrijednosti za pretragu
+        const searchInput = document.getElementById('searchInput');
+        searchInput.value = searchQuery;
+
+        // Filtriranje ponuda
+        function filterPonude() {
+            const ponude = document.querySelectorAll('.ponuda');
+            const searchText = searchInput.value.trim().toLowerCase();
+
+            ponude.forEach(ponuda => {
+                const name = ponuda.getAttribute('data-name').toLowerCase();
+                const category = ponuda.getAttribute('data-category');
+
+                // Filtriranje prema pretrazi i kategoriji
+                if ((searchText === '' || name.includes(searchText)) &&
+                    (categoryFilter === 'all' || category === categoryFilter)) {
+                    ponuda.style.display = 'block';
+                } else {
+                    ponuda.style.display = 'none';
+                }
+            });
+        }
+
+        // Dodavanje event listenera za filtere
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const category = e.target.getAttribute('data-category');
+                const currentUrl = new URL(window.location);
+
+                // Ako je odabrana opcija "Sve", ukloni pretragu
+                if (category === 'all') {
+                    currentUrl.searchParams.delete('search');  // Ukloni pretragu iz URL-a
+                }
+                
+                currentUrl.searchParams.set('category', category);  // Ažuriraj URL sa kategorijom
+                window.location.href = currentUrl.toString();  // Osvježavanje stranice
+            });
+        });
+
+        // Pokreni filtriranje odmah pri učitavanju stranice
+        filterPonude();
+
+        // Dodaj event listener za pretragu
+        searchInput.addEventListener('input', filterPonude);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="script.js"></script>
+
+</body>
+</html>

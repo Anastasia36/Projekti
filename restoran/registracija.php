@@ -1,0 +1,195 @@
+<?php
+session_start();
+include 'spoj.php'; // Uključi datoteku koja spaja na bazu podataka
+
+// Provjera je li obrazac poslan
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Preuzimanje podataka iz forme
+    $ime = $_POST['ime'];
+    $prezime = $_POST['prezime'];
+    $e_mail = $_POST['e_mail'];
+    $korisnicko_ime = $_POST['korisnicko_ime'];
+    $lozinka = $_POST['lozinka'];
+
+    // Zaštita od SQL injekcija
+    $korisnicko_ime = $conn->real_escape_string($korisnicko_ime);
+    $lozinka = $conn->real_escape_string($lozinka);
+    $ime = $conn->real_escape_string($ime);
+    $prezime = $conn->real_escape_string($prezime);
+    $e_mail = $conn->real_escape_string($e_mail);
+
+    // Provjera postoji li korisnik s istim korisničkim imenom
+    $sql = "SELECT * FROM korisnici WHERE korisnicko_ime = '$korisnicko_ime'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        echo "<p>Korisničko ime već postoji. Pokušajte s drugim.</p>";
+    } else {
+        // Postavljanje početne uloge kao 'kupac'
+        $uloga = 'kupac';
+        
+        // Unos novog korisnika u bazu
+        $sql = "INSERT INTO korisnici (ime, prezime, e_mail, korisnicko_ime, lozinka, uloga) 
+                VALUES ('$ime', '$prezime', '$e_mail', '$korisnicko_ime', '$lozinka', '$uloga')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "<p>Registracija uspješna! Dobrodošli, možete se prijaviti.</p>";
+            // Preusmjeravanje na stranicu ispis.php za kupce
+            header("Location: ispis.php");
+            exit();
+        } else {
+            echo "<p>Greška pri registraciji: " . $conn->error . "</p>";
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+	<link rel="icon" type="image/x-icon" href="/slike/logo.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+	<!-- Početak zaglavlja -->
+    <div class="container text-center mt-4">
+        <img src="slike/logo.jpg" alt="Logo" class="header-image">
+        <h1 class="mt-2">RESTORAN</h1>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+					<li class="nav-item"><a class ="nav-link" href="index.html">Početna</a></li>
+                    <li class="nav-item"><a class="nav-link" href="galerija.html">Galerija</a></li>
+                    <li class="nav-item"><a class="nav-link" href="onama.html">O nama</a></li>
+                    <li class="nav-item"><a class="nav-link" href="jelovnik.html">Jelovnik</a></li>
+					<li class="nav-item"><a class="nav-link" href="contact.html">Rezervacija</a></li>
+					<li class="nav-item"><a class="nav-link" href="admin_login.html">Prijava</a></li>
+					<li class="nav-item active"><a class="nav-link" href="korisnik.html">Registracija</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+	<!-- Kraj zaglavlja -->
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Registracija korisnika</h2>
+        <form>
+            <div class="mb-3">
+                <label for="username" class="form-label">Korisničko ime</label>
+                <input type="text" class="form-control" id="username" placeholder="Unesite korisničko ime" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email adresa</label>
+                <input type="email" class="form-control" id="email" placeholder="Unesite e-mail adresu" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Lozinka</label>
+                <input type="password" class="form-control" id="password" placeholder="Unesite lozinku" required>
+            </div>
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Potvrdite lozinku</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Potvrdite lozinku" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Početak kontakta -->
+<div class="contact-imfo-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <i class="fa fa-volume-control-phone"></i>
+                <div class="overflow-hidden">
+                    <h4>Telefon</h4>
+                    <p class="lead">
+                        091 33 55 302
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <i class="fa fa-envelope"></i>
+                <div class="overflow-hidden">
+                    <h4>Email</h4>
+                    <p class="lead">
+                        restoran@gmail.com
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <i class="fa fa-map-marker"></i>
+                <div class="overflow-hidden">
+                    <h4>Lokacija</h4>
+                    <p class="lead">
+                        Vukovarska 5, Osijek
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Kraj kontakta -->
+
+    <!-- Početak podnožja -->
+<footer class="footer-area bg-f">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <h3>O nama</h3>
+                <p>U elegantnom ambijentu restorana uživajte u izboru gotovih jela, jela po narudžbi te izboru specijaliteta sa roštilja na drveni ugljen. U sklopu restorana Lipa nalazi se dvorana u kojoj, osim klasičnih ručkova organiziramo i sve vrste svečanosti.</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h3>Radno vrijeme</h3>
+                <p><span class="text-color">Ponedjeljak-Petak: 9:00 h - 22:00 h</p>
+                <p><span class="text-color">Subota-Nedjelja: 12:00 h - 21:00 h</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h3>Kontakt informacije</h3>
+                <p class="lead">Vukovarska 5, Osijek</p>
+                <p class="lead"><a href="#">091 33 55 302</a></p>
+                <p><a href="#"> restoranlipa@gmail.com</a></p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h3>Pretplatite se</h3>
+                <div class="subscribe_form">
+                    <form class="subscribe_form">
+                        <input name="EMAIL" id="subs-email" class="form_input" placeholder="Email Adresa..." type="email">
+                        <button type="submit" class="submit">PRETPLATI SE</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="company-name">&copy; Anastasia Šmrčković</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</footer>
+<!-- Kraj podnožja -->
+</body>
+</html>
