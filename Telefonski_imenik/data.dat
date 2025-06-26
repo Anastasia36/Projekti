@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<AppData xmlns="http://tempuri.org/AppData.xsd">
+  <Telefonski_x0020_imenik>
+    <Ime>Dario</Ime>
+    <Prezime>Darić</Prezime>
+    <Broj_x0020_telefona>09145656</Broj_x0020_telefona>
+    <E-mail>dariodaric</E-mail>
+    <Adresa>ulica 56</Adresa>
+    <ID>-1</ID>
+  </Telefonski_x0020_imenik>
+</AppData>
