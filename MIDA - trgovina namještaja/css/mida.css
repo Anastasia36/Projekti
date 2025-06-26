@@ -1,0 +1,104 @@
+ <html>
+ <head>
+ <style>
+body {
+  font-family: Times new roman;
+  background-color: #FFFFF0;
+  }
+table, th, td {
+  border: 1px solid black;
+}
+.tablica{
+  display: table;
+  border-collapse: separate;
+  border-spacing: 3px;
+  border-color: black;
+  }
+ .button {
+        background-color: #4169E1;
+        border: none;
+        color: white;
+        padding: 20px 34px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+		}
+form {
+  font-family: Arial;
+}
+input[type=text], input[type=submit] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid darkgray;
+  box-sizing: border-box;
+}
+
+input[type=checkbox] {
+  margin-top: 16px;
+}
+
+input[type=submit] {
+  background-color: #4169E1;
+  color: white;
+  border: none;
+}
+
+input[type=submit]:hover {
+  opacity: 0.8;
+}
+.hr {
+  border: 2px solid white;
+}
+.zoom {
+  padding: 30px;
+  transition: transform .2s;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+.footer {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #696969;
+   color: white;
+   text-align: center;
+}
+p {
+  color: white;
+  text-indent: 30px;
+  font-size: 20px;
+}
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #4169E1;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+</head>
+</style>
+</html>
